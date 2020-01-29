@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
+
+/*=======================================
+*            global elements            *
+=======================================*/
+
+*, 
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #eee;
+    color: #444;
+    font-family: 'Open Sans Condensed', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-weight: 800;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor
+}
+
+/*============================
+*            main            *
+============================*/
+
+.return-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2rem;
+    transition: transform 300ms;
+}
+
+.return-button:hover {
+    transform: scale(1.2);
+}
+
+.title {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin: 3rem 0;
+}
+.settings-container {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-row {
+    width: 100%;
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.settings-row h2 {
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+.settings-row input {
+    height: 100%;
+    border: none;
+    width: 50%;
+    font-size: 1.5rem;
+    padding: 5px;
+    background: transparent;
+    transition: background 300ms;
+    border: 1px #444 solid;
+}
+
+.settings-row input:hover {
+    background: #fff;
+}
+
+.settings-row input:focus {
+    outline: none;
+    background: #fff;
+}
+
+.settings-row-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.settings-row-container h3 {
+    font-size: 1.5rem;
+    margin: 0 1rem;
+}
+
+.settings-row select {
+    border: 1px #444 solid;
+    font-size: 1rem;
+}
+
+.settings-row select:hover {
+    cursor: pointer;
+    background: #fff;
+}
+
+.settings-row select:focus {
+    outline: none;
+}
+
+.save-button {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    border: 1px #444 solid;
+    transition: transform 300ms, color 300ms;
+    margin-top: 10rem;
+}
+
+.save-button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    background: #fff;
+}

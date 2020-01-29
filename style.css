@@ -1,8 +1,38 @@
-* {
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
+@import url('https://kit.fontawesome.com/314044026f.js');
+
+/*=======================================
+*            global elements            *
+=======================================*/
+
+*, 
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #eee;
+    color: #444;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor
+}
+
+/*==============================
+*            header            *
+==============================*/
 
 header {
     height: 100vh;
@@ -10,4 +40,116 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    padding: 2rem;
+    padding-bottom: 8rem;
 }
+
+.header-title {
+    font-size: 5rem;
+    font-weight: 600;
+    letter-spacing: 5px;
+    align-self: flex-start;
+    text-transform: uppercase;
+}
+
+.header-scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-scroll h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    transition: transform 300ms;
+    margin-bottom: 1rem;
+}
+
+.header-scroll .fas {
+    transition: transform 300ms;
+}
+
+.header-scroll:hover h2 {
+    transform: translateY(5px);
+}
+
+.header-scroll:hover .fas {
+    transform: translateY(20px);
+}
+
+
+
+
+/*============================
+*            main            *
+============================*/
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 2rem 0;
+    position: relative;
+}
+
+.settings-link {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 2rem;
+    transition: transform 300ms;
+}
+
+.settings-link:hover {
+    transform: scale(1.2);
+}
+
+.calendar {
+    width: 75%;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+}
+
+.timeslot {
+    width: 100%;
+    display: flex;
+    background: #fff;
+    border-bottom: 1px #444 solid;
+}
+
+.time {
+    height: 100%;   
+    font-size: 1.5rem;
+    font-weight: 800;
+    padding: 1rem;
+}
+
+.timeslot-input {
+    font-size: 1.5rem;
+    padding: 5px 20px;
+    flex-grow: 1;
+    border: none;
+}
+
+.timeslot-input:focus {
+    outline: none;
+}
+
+.timeslot .fas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    transition: transform 300ms;
+}
+
+.timeslot .fas:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+footer {
+    padding: 3rem;
+}
+
+
