@@ -50,12 +50,46 @@ header {
     letter-spacing: 5px;
     align-self: flex-start;
     text-transform: uppercase;
+    position: relative;
 }
+
+.header-title span {
+    display: inline-block;
+    animation-name: titleLoad;
+    animation-duration: 1000ms;
+    animation-fill-mode: forwards; 
+}
+
+@keyframes titleLoad {
+    from {
+        transform: translateY(-200px);
+    }
+    to {
+        transform: translateY(o);
+    }
+}
+
+
 
 .header-scroll {
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation-name: scrollLoad;
+    animation-duration: 1000ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes scrollLoad {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .header-scroll h2 {
@@ -98,7 +132,21 @@ header {
     top: 0;
     right: 0;
     padding: 2rem;
+    animation-name: settingsLoad;
+    animation-duration: 1000ms;
+    animation-fill-mode: forwards;
     transition: transform 300ms;
+}
+
+@keyframes settingsLoad {
+    from {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .settings-link:hover {
@@ -115,6 +163,17 @@ header {
     display: flex;
     background: #fff;
     border-bottom: 1px #444 solid;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1000ms;
+}
+
+.timeslot.past {
+    background: #ccc;
+}
+
+.timeslot.current{
+    background: #c3ffc3;
 }
 
 .time {
@@ -129,6 +188,7 @@ header {
     padding: 5px 20px;
     flex-grow: 1;
     border: none;
+    background: transparent;
 }
 
 .timeslot-input:focus {
@@ -153,3 +213,12 @@ footer {
 }
 
 
+
+/*=====================================
+*            appear effect            *
+=====================================*/
+
+.appear {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}

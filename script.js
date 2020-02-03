@@ -11,7 +11,7 @@ var timeArr = [
     "9 a.m.",
     "10 a.m.",
     "11 a.m.",
-    "12 a.m.",
+    "12 p.m.",
     "1 p.m.",
     "2 p.m.",
     "3 p.m.",
@@ -23,10 +23,9 @@ var timeArr = [
     "9 p.m.",
     "10 p.m.",
     "11 p.m.",
-    "12 p.m.",
+    "12 a.m.",
 ];
 var calendarContainer = $(".calendar");
-console.log(calendarContainer);
 
 function calendarCreate () {
     
@@ -39,7 +38,81 @@ function calendarCreate () {
         calendarContainer.append(timeSlotCreate);
         timeSlotCreate.append(timeCreate);
         timeSlotCreate.append(inputCreate);
+        timeSlotCreate.append(saveCreate);
     }
 }
 
+// to change colors of timeslots
+
+var time;
+setInterval(function() {
+    time = moment().format('h');
+    var timeOfDay = moment().format('a')
+
+    if (timeOfDay == "pm" && time != "12") {
+        time = Number(time) + 12;
+    }
+    
+    for (var i = 0; i < time-1; i++) {
+        calendarTimeslot.eq(i).addClass("past");
+    }
+    var current = calendarTimeslot.eq(time-1).addClass("current");
+    time = 0;
+    
+}, 1000);
+
 calendarCreate();
+
+// save text inside calendar 
+
+var calendarTimeslot = $(".timeslot");
+var calendarInputArr = $(".timeslot-input")
+var saveButtonArr = $(".save-icon")
+var calendarTextArr = [];
+
+
+
+$.each(saveButtonArr, function(index) {
+    saveButtonArr.eq(index).click(function (){
+        $.each(saveButtonArr, function(index) {
+            calendarTextArr.push(calendarInputArr.eq(index).val())
+            localStorage.setItem("calendarText", JSON.stringify(calendarTextArr))
+        })
+        console.log(calendarTextArr)
+    })
+})
+// to insert last saved text into timeslots 
+
+var savedEvents = JSON.parse(localStorage.getItem("calendarText"));
+console.log(savedEvents[0])
+
+$.each (calendarInputArr, function (index) {
+    var text = calendarInputArr.eq(index).val(savedEvents[index]);
+    // console.log(text)
+
+})
+
+
+// appear animation 
+var screenPosition = window.innerHeight
+
+function fadeIn() {
+    for (var i = 0; i < calendarTimeslot.length; i++) {
+        var timeslotPosition = calendarTimeslot[i].getBoundingClientRect().top;
+
+        if (timeslotPosition < (screenPosition * 0.95)) {
+            calendarTimeslot.eq(i).addClass("appear");
+        }
+    }
+}
+
+fadeIn();
+window.addEventListener("scroll", fadeIn);
+
+// title animation 
+
+var titleSpan = $("span");
+for (var i = 0; i < titleSpan.length; i++) {
+    titleSpan.eq(i).addClass("appear");
+
+}
