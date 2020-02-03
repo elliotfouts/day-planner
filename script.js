@@ -84,7 +84,6 @@ $.each(saveButtonArr, function(index) {
 // to insert last saved text into timeslots 
 
 var savedEvents = JSON.parse(localStorage.getItem("calendarText"));
-console.log(savedEvents[0])
 
 $.each (calendarInputArr, function (index) {
     var text = calendarInputArr.eq(index).val(savedEvents[index]);
