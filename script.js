@@ -87,7 +87,6 @@ var savedEvents = JSON.parse(localStorage.getItem("calendarText"));
 
 $.each (calendarInputArr, function (index) {
     var text = calendarInputArr.eq(index).val(savedEvents[index]);
-    // console.log(text)
 
 })
 
