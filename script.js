@@ -30,7 +30,7 @@ var calendarContainer = $(".calendar");
 function calendarCreate () {
     
     for (var i = 0; i < timeArr.length; i++) {
-        var timeSlotCreate = $('<div class="timeslot">')
+        var timeSlotCreate = $('<div class="timeslot appear">')
         var timeCreate = $('<h3 class="time"></h3>')
         var inputCreate = $('<input class="timeslot-input" placeholder="Add activity..." type="text">')
         timeCreate.text(timeArr[i]);
@@ -112,5 +112,4 @@ window.addEventListener("scroll", fadeIn);
 var titleSpan = $("span");
 for (var i = 0; i < titleSpan.length; i++) {
     titleSpan.eq(i).addClass("appear");
-
 }
